@@ -2,8 +2,8 @@ package ru.vsu.cs.ukhin.search;
 
 public class LinearSearch implements Search {
 
-    private double minTime;
-    private double maxTime;
+    private double minTime = Double.MAX_VALUE;
+    private double maxTime = Double.MIN_VALUE;
     private double allTimes;
     private int count;
     private final String name = "Linear";
