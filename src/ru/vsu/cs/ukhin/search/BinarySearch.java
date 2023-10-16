@@ -8,6 +8,7 @@ public class BinarySearch implements Search{
     private final String name = "Binary";
     @Override
     public int search(int[] searchArray, int a) {
+        int index = -1;
         int i = 0;
         int leftEl = 0;
         int rightEl = searchArray.length - 1;
@@ -16,6 +17,7 @@ public class BinarySearch implements Search{
             i++;
             el = leftEl+(rightEl - leftEl)/2;
             if (a == searchArray[el]){
+                index = el;
                 break;
             }
             else if(a < searchArray[el]){
@@ -25,7 +27,7 @@ public class BinarySearch implements Search{
             }
         }while (leftEl < rightEl);
         setTime(i);
-        return i;
+        return index;
     }
 
     @Override

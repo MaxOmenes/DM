@@ -10,17 +10,17 @@ public class LinearSearch implements Search {
 
     @Override
     public int search(int[] searchArray, int a) {
+        int index = -1;
         int i = 0;
-        boolean found = false;
-        for(int n:searchArray){
+        for(int j = 0; j < searchArray.length; j++){
             i++;
-            if(n == a){
-                found = true;
+            if(searchArray[j] == a){
+                index = j;
                 break;
             }
         }
         setTime(i);
-        return i;
+        return index;
     }
 
     @Override
