@@ -1,6 +1,7 @@
 package ru.vsu.cs.ukhin;
 
 import ru.vsu.cs.ukhin.search.BinarySearch;
+import ru.vsu.cs.ukhin.search.InterpolationSearch;
 import ru.vsu.cs.ukhin.search.LinearSearch;
 import ru.vsu.cs.ukhin.search.Search;
 
@@ -11,6 +12,7 @@ public class Main {
         ArrayList<Search> searches = new ArrayList<>();
         searches.add(new LinearSearch());
         searches.add(new BinarySearch());
+        searches.add(new InterpolationSearch());
 
 
         int[] searchArray = new int[10000];
