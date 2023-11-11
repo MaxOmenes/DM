@@ -1,31 +1,24 @@
-package ru.vsu.cs.ukhin.search;
+package ru.vsu.cs.ukhin.models;
 
-public class BinarySearch implements Search{
+public class LinearSearch implements Search {
+
     private double minTime = Double.MAX_VALUE;
     private double maxTime = Double.MIN_VALUE;
     private double allTimes;
     private int count;
-    private final String name = "Binary";
+    private final String name = "Linear";
+
     @Override
     public int search(int[] searchArray, int a) {
         int index = -1;
         int i = 0;
-        int leftEl = 0;
-        int rightEl = searchArray.length - 1;
-        int el;
-        do{
+        for(int j = 0; j < searchArray.length; j++){
             i++;
-            el = leftEl+(rightEl - leftEl)/2;
-            if (a == searchArray[el]){
-                index = el;
+            if(searchArray[j] == a){
+                index = j;
                 break;
             }
-            else if(a < searchArray[el]){
-                rightEl = el-1;
-            }else if(a > searchArray[el]){
-                leftEl = el+1;
-            }
-        }while (leftEl < rightEl);
+        }
         setTime(i);
         return index;
     }
@@ -59,6 +52,5 @@ public class BinarySearch implements Search{
 
         count++;
         allTimes +=a;
-
     }
 }

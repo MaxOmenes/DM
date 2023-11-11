@@ -1,4 +1,4 @@
-package ru.vsu.cs.ukhin.search;
+package ru.vsu.cs.ukhin.models;
 
 public class InterpolationSearch implements Search{
     private double minTime = Double.MAX_VALUE;

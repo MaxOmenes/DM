@@ -1,9 +1,11 @@
 package ru.vsu.cs.ukhin;
 
-import ru.vsu.cs.ukhin.search.BinarySearch;
-import ru.vsu.cs.ukhin.search.InterpolationSearch;
-import ru.vsu.cs.ukhin.search.LinearSearch;
-import ru.vsu.cs.ukhin.search.Search;
+import ru.vsu.cs.ukhin.models.BinarySearch;
+import ru.vsu.cs.ukhin.models.InterpolationSearch;
+import ru.vsu.cs.ukhin.models.LinearSearch;
+import ru.vsu.cs.ukhin.models.Search;
+import ru.vsu.cs.ukhin.tools.FileReader;
+import ru.vsu.cs.ukhin.tools.FileWriter;
 
 import java.util.ArrayList;
 
@@ -13,9 +15,13 @@ public class Main {
         searches.add(new LinearSearch());
         searches.add(new BinarySearch());
         searches.add(new InterpolationSearch());
+//        FileWriter f = new FileWriter(args[0]);
+//        for (int i = 0; i < 10000; i++) {
+//            f.print(i+", ");
+//        }
 
-
-        int[] searchArray = new int[10000];
+        int[] searchArray = new FileReader(args[0]).read();
+        FileWriter f = new FileWriter(args[1]);
         for(int i = 0; i < searchArray.length; i++){
             searchArray[i] = i;
         }
@@ -23,10 +29,11 @@ public class Main {
             for(int i = 0; i < searchArray.length; i++){
                 s.search(searchArray, i);
             }
-            System.out.println(s.getName()
+            f.println(s.getName()
                     +"; MinTime="+ s.getMinTime()
                     +"; AvgTime="+s.getAvgTime()
                     +"; MaxTime="+s.getMaxTime());
         }
+        f.close();
     }
 }
